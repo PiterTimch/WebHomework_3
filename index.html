@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Звіт ДЗ</title>
+
+    <link rel="icon" type="image/png" href="/images/frog.png">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="container">
+        <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary d-flex align-items-center flex-wrap">
+            <div class="col-lg-6 px-0">
+                <h1 class="display-4 fst-italic">Усі рівні Flexbox Froggy</h1>
+                <p class="lead my-3">Це сайт-звіт моєї домашеьої роботи. Тут Ви можете побачити як я проходив кожен рівень у грі Flexbox Froggy</p>
+                <p class="lead mb-0"><a href="https://flexboxfroggy.com/" class="text-body-emphasis fw-bold">Сайт гри...</a></p>
+            </div>
+            <img src="/images/frog.png" alt="Frog" class="col-lg-6" />
+        </div>
+
+        <div id="levels-container"></div>
+
+        <footer class="col-10 offset-1 bg-body-secondary">
+            <p class="text-center">© YourSoftware 2025. Усі права захищено.</p>
+        </footer>
+    </main>
+
+    <script>
+        const imageFiles = [];
+
+        for (let i = 1; i <= 24; i++) {
+            imageFiles.push(`level_${i}.png`);
+        }
+
+        const container = document.getElementById("levels-container");
+
+        imageFiles.forEach((file, index) => {
+            const levelDiv = document.createElement("div");
+            levelDiv.className = "text-center mb-5";
+
+            const title = document.createElement("h2");
+            title.textContent = `Рівень ${index + 1}`;
+
+            const img = document.createElement("img");
+            img.src = `/images/levels/${file}`;
+            img.alt = `Рівень ${index + 1}`;
+            img.className = "col-10 rounded";
+
+            levelDiv.appendChild(title);
+            levelDiv.appendChild(img);
+            container.appendChild(levelDiv);
+        });
+    </script>
+</body>
+</html>
